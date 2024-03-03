@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+</head>
+<body style="background-color: rgb(185, 97, 173);"> <!-- Add the background color here -->
+    <h1>Tip Calculator</h1>
+    <label for="billAmount">Enter bill amount:</label>
+    <input type="number" id="billAmount" min="0" step="0.01">
+    <br>
+    <label for="tipPercentage">Select tip percentage:</label>
+    <select id="tipPercentage">
+        <option value="5">5%</option>
+        <option value="10">10%</option>
+        <option value="15">15%</option>
+        <option value="20">20%</option>
+        <option value="25">25%</option>
+    </select>
+    <br>
+    <button onclick="calculateTip()">Calculate Tip</button>
+    <br>
+    <p id="tipAmount"></p>
+    <script>
+        function calculateTip() {
+            var billAmount = parseFloat(document.getElementById('billAmount').value);
+            var tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
+            var tipAmount = (billAmount * tipPercentage) / 100;
+            var totalAmount = billAmount + tipAmount;
+            document.getElementById('tipAmount').innerText = "Tip: $" + tipAmount.toFixed(2) + ", Total: $" + totalAmount.toFixed(2);
+        }
+    </script>
+</body>
+</html>
